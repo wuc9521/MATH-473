@@ -21,3 +21,5 @@
 \usepackage{setspace}
 \usepackage{titlesec}
 \usepackage{tocloft}
+\usepackage{multicol} % use to create multiple columns
+\usepackage{lettrine} % use to create dropped capital letter
