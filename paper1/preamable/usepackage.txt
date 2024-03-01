@@ -23,3 +23,7 @@
 \usepackage{tocloft}
 \usepackage{multicol} % use to create multiple columns
 \usepackage{lettrine} % use to create dropped capital letter
+\usepackage{graphicx} % use to insert image
+\usepackage{wrapfig} % use to wrap text around figure
+\usepackage{setspace} % For controlling line spacing
+\usepackage{mathtools} % For adjusting spacing in math environments
