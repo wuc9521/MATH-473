@@ -1,0 +1,37 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}[scale=0.8]
+    % Axes
+    \draw[->] (-0.5,0) -- (10,0) node[right] {$x$};
+    \draw[->] (0,-0.5) -- (0,10) node[above] {$y$};
+
+    % Grid lines
+    \foreach \x in {0,1,...,9}
+    \draw[dashed, gray] (\x cm,0) -- (\x cm,9);
+    \foreach \y in {0,1,...,9}
+    \draw[dashed, gray] (0,\y cm) -- (9,\y cm);
+
+
+
+    % Red point at (2,2)
+    \node[circle, fill=red, inner sep=1.5pt] at (0,0) {};
+    \node[circle, fill=red, inner sep=1.5pt] at (0,3) {};
+    \node[circle, fill=red, inner sep=1.5pt] at (4,3) {};
+    \node[circle, fill=red, inner sep=1.5pt] at (4,6) {};
+    \node[circle, fill=red, inner sep=1.5pt] at (9,6) {};
+    \node[circle, fill=red, inner sep=1.5pt] at (9,9) {};
+
+    % Red labels for left and top sides
+    \draw[red] (0,0) -- node[left,red] {} (0,3);
+    \draw[red] (0,3) -- node[above,red] {} (4,3);
+    \draw[red] (4,3) -- node[left,red] {} (4,6);
+    \draw[red] (4,6) -- node[above,red] {} (9,6);
+    \draw[red] (9,6) -- node[left,red] {} (9,9);
+
+    % Labels
+    \node[below left] at (0,0) {$(0,0)$};
+    \node[above right] at (9,9) {$(n,n)$};
+\end{tikzpicture}
+\end{document}
