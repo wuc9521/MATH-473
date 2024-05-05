@@ -1,31 +1,46 @@
 \section{Recurrence Relation}
 The definition of Catalan Numbers is given by the following formula
 \[
-\begin{aligned}
-    C_n = \frac{1}{n+1}\binom{2n}{n} = \frac{(2n)!}{(n+1)!n!}.\quad n \geq 0.
-\end{aligned}
+    \begin{aligned}
+        C_n = \frac{1}{n+1}\binom{2n}{n} = \frac{(2n)!}{(n+1)!n!}.\quad n \geq 0.
+    \end{aligned}
 \]
 
 or is more commonly defined by the following recurrence relation:
 
 \[
-\begin{aligned}
-    C_0 &= 1, \\
-    C_{n+1} &= \sum_{i=0}^{n} C_i C_{n-i}, \quad n \geq 0.
-\end{aligned}
+    \begin{aligned}
+        C_0     & = 1,                                          \\
+        C_{n+1} & = \sum_{i=0}^{n} C_i C_{n-i}, \quad n \geq 0.
+    \end{aligned}
 \]
 
 These two definitions are proved equivalent by using the method of generating functions.
 Suppose there is a function $g(x)$ such that
 \[
-\begin{aligned}
-    g(x) = 1 + g(x)^2.
-\end{aligned}
+    g(x) = \sum_{n=0}^{\infty} C_n x^n.
+\]
+where $C_n$ is the $n$-th Catalan number. Then we have~\footnote[1]{Note that in Combinatorics, we don't really care about whether this series converges, we always assume that it will converge in a certain radius.}
+
+\[
+    \begin{split}
+        \begin{aligned}
+            g^2(x)
+             & = \sum_{n=0}^{\infty} \left(\sum_{i=0}^{n} C_i C_{n-i}\right) x^n. \\
+             & = \sum_{n=0}^{\infty} C_{n+1} x^n.                                 \\
+             & = \frac{g(x) - 1}{x}.
+        \end{aligned}
+    \end{split}
+    \quad \stackrel{g(0)=1}{\Longrightarrow} \quad
+    \begin{split}
+        \begin{aligned}
+            g(x)
+             & = \frac{1 - \sqrt{1 - 4x}}{2x}                               \\
+             & = -\frac{1}{2x}\sum_{n=1}^{\infty}\binom{1 / 2}{n}(-4 x)^{n} \\
+             & = \sum_{n=0}^{\infty} \frac{1}{n+1}\binom{2n}{n}x^n.
+        \end{aligned}
+    \end{split}
 \]
 
-Then we have
-\[
-\begin{aligned}
-    g(x) = \frac{1 - \sqrt{1 - 4x}}{2x} = \sum_{n=0}^{\infty} C_n x^n.
-\end{aligned}
-\]
+
+\noindent By applying the Taylor Expansion, we can derive that these two definitions are equivalent as the coefficient of $x^n$ in the series expansion of $g(x)$ is $C_n$.

@@ -1,21 +1,24 @@
 \documentclass[12pt,  a4paper]{article}
 \input{preamable/usepackage.txt}
+\usepackage{silence} 
+\WarningFilter{latex}{You have requested package}
+\WarningFilter{latex}{You should put}
 \usepackage{setup}
+
+\addbibresource{main.bib}
 
 \doublespacing
 
 \begin{document}
-\input{preamable/titlepage.tex}
+    \input{preamable/titlepage.tex}
+
+    \input{sections/introduction.tex}
+    \input{sections/formula.tex}
+    \input{sections/application.tex}
+    \input{sections/conclusion.tex}
 
 
-\input{sections/introduction}
-\input{sections/formula}
-\input{sections/conclusion}
-
-
-\pagebreak 
-\nocite{*}
-\bibliography{main}
-\bibliographystyle{unsrt}
-
+    \pagebreak
+    \nocite{*}
+    \printbibliography[title={References}]
 \end{document}

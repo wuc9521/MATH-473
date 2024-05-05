@@ -1,5 +1,5 @@
 $$
-\Huge\textbf{MATH 473 Mid-term Paper-II}
+\Huge\textbf{MATH 473 Mid-term Paper-I}
 $$
 
 ### Purpose

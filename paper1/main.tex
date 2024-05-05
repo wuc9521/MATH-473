@@ -1,0 +1,26 @@
+\documentclass[12pt,  a4paper]{article}
+\input{preamable/usepackage.txt}
+\usepackage{setup}
+
+\doublespacing
+
+\begin{document}
+\input{preamable/titlepage.tex}
+
+% \newpage
+% {\hypersetup{linkcolor=black}\tableofcontents}
+
+
+
+\input{sections/introduction}
+\input{sections/biography}
+\input{sections/research}
+\input{sections/currying}
+\input{sections/conclusion}
+
+
+\pagebreak 
+\bibliography{main}
+\bibliographystyle{unsrt}
+
+\end{document}

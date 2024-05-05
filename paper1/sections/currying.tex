@@ -1,0 +1,91 @@
+\section{Currying and an Example}
+In mathematics and computer science, currying\cite{currying} is the technique of translating the evaluation of a function that takes multiple arguments (or a tuple of arguments) into evaluating a sequence of functions, each with a single argument.
+Since the logic part requires too much mathematical knowledge that I could barely cover them in 1500 words, I think using some simple programming codes here can make it easier to explain the main work of currying.
+
+I'll firstly show the direct definition of currying:
+given a function 
+\[
+    f: (X \times Y) \rightarrow Z    
+\]
+currying constructs a new function
+\[
+\begin{aligned}
+    g: X \rightarrow (Y \rightarrow Z) \\
+    (x)(y) \mapsto f(x, y)
+\end{aligned}
+\]
+for ${x}$ of type ${\displaystyle X}$ and ${y}$ of type ${\displaystyle Y}$. We then also write
+\[
+    \text{curry}(f) = g    
+\]
+
+To illustrate currying, let's first introduce the concept of \textbf{types}.
+
+In programming languages, expressions have values. We often say that an expression has a value of \texttt{1} or a value of \texttt{'a'}. Although they are stored in memory in binary format, they are conceptually distinct. To distinguish between them, we assign different types.
+
+We refer to the value \texttt{1}'s type as \texttt{Int}, representing an integer, and the value \texttt{'a'}s type as \texttt{Char}, representing a character.
+
+Thus, we establish a layer of abstraction on the concept of values, where different values have distinct properties based on their types.
+
+In mathematical terms, types act as an equivalence relation on the set of values, inducing a partition of this set. Values of the same type form an equivalence class.
+
+A function is used to transform one or more values into another value. Functions are also considered values and therefore have types.
+
+For example, the addition function \texttt{add} takes two integer values and produces another integer value. Once we have defined the add function, we can call it like this:
+
+% add code here
+\begin{lstlisting}
+        add 1 2
+    =   3
+\end{lstlisting}
+
+Now, let's consider a question: what happens if we only provide one parameter to \texttt{add}? What is the result of \texttt{add 1}?
+
+We can visualize it like this: consider add as a machine with two slots. If we provide values \texttt{1} and \texttt{2} to each slot respectively, the machine will produce the result \texttt{3}. Now, if only one slot is filled with \texttt{1}, what happens? Clearly, it's still a machine, but with only one slot filled. Therefore, \texttt{add 1} remains a function, but it only accepts one parameter. It returns the result of adding \texttt{1} to the provided parameter value. We can denote its type as:
+\begin{lstlisting}
+    add 1 :: Int -> Int
+\end{lstlisting}
+
+Let's reconsider the type of \texttt{add}. We observe that when \texttt{add} is given \texttt{1} as a parameter, it returns the function \texttt{add 1}. Therefore, we have an alternative perspective on \texttt{add}. It can be viewed as a machine with one slot: when provided with the parameter 1, it produces another machine with one slot, \texttt{add 1}. Hence, we can denote the type of add as:
+
+\begin{lstlisting}
+    add :: Int -> (Int -> Int)
+\end{lstlisting}
+
+For convenience in writing, we agree on right associativity for \texttt{->}, thus:
+
+\begin{lstlisting}
+    add :: Int -> Int -> Int
+\end{lstlisting}
+
+In fact, according to the notation provided above, Currying refers to a higher-order function as follows:
+
+\begin{lstlisting}
+    curry :: ((a, b) -> c) -> (a -> b -> c)
+\end{lstlisting}
+
+\noindent It transforms a function \texttt{f} into a function \texttt{g}, such that:
+\begin{lstlisting}
+    f :: ((a, b) -> c)
+    g :: a -> b -> c
+\end{lstlisting}
+
+\noindent where \lstinline{g = curry f} and \lstinline{f = uncurry g}. This ensures that for any \texttt{x} and \texttt{y}, it satisfies:
+
+\begin{lstlisting}
+    f (x, y) = g x y
+\end{lstlisting}
+
+You might wonder what's the point of curring. 
+Actually, curring brings much flexibility and makes it easier for composition: curried functions can be easily composed together to create more complex functions. 
+By partially applying functions and combining them, one can create new functions without modifying existing ones, leading to more flexible and expressive expression.
+
+Curring is a fundamental concept in the future development of so-called functional programming languages, which are derived from the $\lambda$-Calculus.
+At that time, Currying had few applications in fields other than logic, but Curry's vision was ahead of its time. 
+Today, decades later, the \textbf{Haskell} programming language based on Curring's functions has become one of the most popular programming languages in the world, widely used Used in various fields of engineering.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/haskell.png}
+    \caption{Haskell Programming Language}
+    \label{fig:haskell}
+\end{figure}
