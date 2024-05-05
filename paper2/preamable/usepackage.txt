@@ -41,3 +41,4 @@
 \usepackage{wrapfig} % use to wrap text around figure
 \usepackage{setspace} % For controlling line spacing
 \usepackage{mathtools} % For adjusting spacing in math environments
+\usepackage{multicol}
