@@ -1,0 +1,31 @@
+\section{Recurrence Relation}
+The definition of Catalan Numbers is given by the following formula
+\[
+\begin{aligned}
+    C_n = \frac{1}{n+1}\binom{2n}{n} = \frac{(2n)!}{(n+1)!n!}.\quad n \geq 0.
+\end{aligned}
+\]
+
+or is more commonly defined by the following recurrence relation:
+
+\[
+\begin{aligned}
+    C_0 &= 1, \\
+    C_{n+1} &= \sum_{i=0}^{n} C_i C_{n-i}, \quad n \geq 0.
+\end{aligned}
+\]
+
+These two definitions are proved equivalent by using the method of generating functions.
+Suppose there is a function $g(x)$ such that
+\[
+\begin{aligned}
+    g(x) = 1 + g(x)^2.
+\end{aligned}
+\]
+
+Then we have
+\[
+\begin{aligned}
+    g(x) = \frac{1 - \sqrt{1 - 4x}}{2x} = \sum_{n=0}^{\infty} C_n x^n.
+\end{aligned}
+\]
