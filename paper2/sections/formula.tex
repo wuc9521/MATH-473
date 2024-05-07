@@ -1,28 +1,30 @@
 \section{Recurrence Relation}
 The definition of Catalan Numbers is given by the following formula
-\[
+\begin{equation}
     \begin{aligned}
-        C_n = \frac{1}{n+1}\binom{2n}{n} = \frac{(2n)!}{(n+1)!n!}.\quad n \geq 0.
+        C_n = \frac{1}{n+1}\binom{2n}{n} = \frac{(2n)!}{(n+1)!n!}.\quad n \geq 0. 
     \end{aligned}
-\]
+\end{equation}
 
-or is more commonly defined by the following recurrence relation:
+or common recurrence relation:
 
-\[
+\begin{equation}
     \begin{aligned}
         C_0     & = 1,                                          \\
         C_{n+1} & = \sum_{i=0}^{n} C_i C_{n-i}, \quad n \geq 0.
     \end{aligned}
-\]
+\end{equation}
 
 These two definitions are proved equivalent by using the method of generating functions.
 Suppose there is a function $g(x)$ such that
-\[
-    g(x) = \sum_{n=0}^{\infty} C_n x^n.
-\]
+\begin{equation}
+    g(x) = \sum_{n=0}^{\infty} C_n x^n. \label{generating-function}
+\end{equation}
+
+
 where $C_n$ is the $n$-th Catalan number. Then we have~\footnote[1]{Note that in Combinatorics, we don't really care about whether this series converges, we always assume that it will converge in a certain radius.}
 
-\[
+\begin{equation}
     \begin{split}
         \begin{aligned}
             g^2(x)
@@ -40,7 +42,7 @@ where $C_n$ is the $n$-th Catalan number. Then we have~\footnote[1]{Note that in
              & = \sum_{n=0}^{\infty} \frac{1}{n+1}\binom{2n}{n}x^n.
         \end{aligned}
     \end{split}
-\]
+\end{equation}
 
 
 \noindent By applying the Taylor Expansion, we can derive that these two definitions are equivalent as the coefficient of $x^n$ in the series expansion of $g(x)$ is $C_n$.
