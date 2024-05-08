@@ -1,20 +1,23 @@
 \documentclass[12pt,  a4paper]{article}
 \input{preamable/usepackage.txt}
+\geometry{margin=0.9in}
 \usepackage{silence} 
 \WarningFilter{latex}{You have requested package}
 \WarningFilter{latex}{You should put}
 \usepackage{setup}
+\usepackage{amsmath}
+
 
 \addbibresource{main.bib}
 
 \doublespacing
 
 \begin{document}
-    \input{preamable/titlepage.tex}
-
-    \input{sections/introduction.tex}
-    \input{sections/formula.tex}
-    \input{sections/application.tex}
+    \input{preamable/titlepage}
+    \input{sections/introduction}
+    \input{sections/formula}
+    \input{sections/application}
+    \input{sections/reflection}
 
     \pagebreak
     \nocite{*}

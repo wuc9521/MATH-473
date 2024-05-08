@@ -31,14 +31,15 @@
 \usepackage{booktabs}  % 用来改变\hline的宽度
 \usepackage{lettrine} % use to create dropped capital letter
 \usepackage[
-    backend=bibtex, 
+    backend=biber, 
     pagetracker=page, 
     citetracker=true, 
     sorting=none,
-    style=numeric
+    style=apa % MATH 473
 ]{biblatex}
 \usepackage[bottom, perpage]{footmisc}
 \usepackage{wrapfig} % use to wrap text around figure
 \usepackage{setspace} % For controlling line spacing
 \usepackage{mathtools} % For adjusting spacing in math environments
 \usepackage{multicol}
+\usepackage{geometry}
